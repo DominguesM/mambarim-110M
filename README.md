@@ -1,33 +1,3 @@
----
-library_name: transformers
-language:
-    - pt
-license: cc-by-4.0
-tags:
-    - text-generation
-    - pytorch
-    - LLM
-    - Portuguese
-    - mamba
-datasets:
-    - nicholasKluge/Pt-Corpus-Instruct-tokenized-large
-inference:
-    parameters:
-        repetition_penalty: 1.2
-        temperature: 0.8
-        top_k: 50
-        top_p: 0.85
-        max_new_tokens: 150
-widget:
-    - text: "O Natal é uma"
-      example_title: Exemplo
-    - text: "A muitos anos atrás, em uma galáxia muito distante, vivia uma raça de"
-      example_title: Exemplo
-    - text: "Em meio a um escândalo, a frente parlamentar pediu ao Senador Silva para"
-      example_title: Exemplo
-pipeline_tag: text-generation
----
-
 # Mambarim-110M
 
 <p align="center">
