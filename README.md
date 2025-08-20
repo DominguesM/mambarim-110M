@@ -1,30 +1,30 @@
 ---
 library_name: transformers
 language:
-- pt
+    - pt
 license: cc-by-4.0
 tags:
-- text-generation
-- pytorch
-- LLM
-- Portuguese
-- mamba
+    - text-generation
+    - pytorch
+    - LLM
+    - Portuguese
+    - mamba
 datasets:
-- nicholasKluge/Pt-Corpus-Instruct
+    - nicholasKluge/Pt-Corpus-Instruct-tokenized-large
 inference:
-  parameters:
-    repetition_penalty: 1.2
-    temperature: 0.8
-    top_k: 50
-    top_p: 0.85
-    max_new_tokens: 150
+    parameters:
+        repetition_penalty: 1.2
+        temperature: 0.8
+        top_k: 50
+        top_p: 0.85
+        max_new_tokens: 150
 widget:
-- text: "O Natal é uma"
-  example_title: Exemplo
-- text: "A muitos anos atrás, em uma galáxia muito distante, vivia uma raça de"
-  example_title: Exemplo
-- text: "Em meio a um escândalo, a frente parlamentar pediu ao Senador Silva para"
-  example_title: Exemplo
+    - text: "O Natal é uma"
+      example_title: Exemplo
+    - text: "A muitos anos atrás, em uma galáxia muito distante, vivia uma raça de"
+      example_title: Exemplo
+    - text: "Em meio a um escândalo, a frente parlamentar pediu ao Senador Silva para"
+      example_title: Exemplo
 pipeline_tag: text-generation
 ---
 
@@ -36,7 +36,7 @@ pipeline_tag: text-generation
 
 </br>
 
-##  Model Summary
+## Model Summary
 
 **Mambarim-110M** is a pioneering 110-million-parameter language model for Portuguese, built upon the **Mamba architecture**. Unlike traditional Transformer models that rely on quadratic self-attention, Mamba is a **State-Space Model (SSM)** that processes sequences with linear complexity.
 
@@ -47,7 +47,7 @@ This design choice leads to significantly faster inference and reduced memory co
 - **Architecture:** a Mamba model pre-trained via causal language modeling
 - **Size:** 119,930,880 parameters
 - **Context length:** 2048 tokens
-- **Dataset:** [Pt-Corpus Instruct](https://huggingface.co/datasets/nicholasKluge/Pt-Corpus-Instruct) (6.2B tokens)
+- **Dataset:** [Pt-Corpus-Instruct-tokenized-large](https://huggingface.co/datasets/nicholasKluge/Pt-Corpus-Instruct-tokenized-large) (6.2B tokens)
 - **Language:** Portuguese
 - **Number of steps:** 758,423
 
@@ -77,13 +77,13 @@ The model is not intended for use in critical applications without comprehensive
 
 ## Basic usage
 
-You need to install `transformers` from `main` until `transformers>=4.39.0` is released. 
+You need to install `transformers` from `main` until `transformers>=4.39.0` is released.
 
 ```bash
 pip install git+https://github.com/huggingface/transformers@main
 ```
 
-We also recommend you to install both `causal_conv_1d` and `mamba-ssm` using: 
+We also recommend you to install both `causal_conv_1d` and `mamba-ssm` using:
 
 ```bash
 pip install causal-conv1d>=1.2.0
@@ -117,11 +117,11 @@ Evaluations on Brazilian Portuguese benchmarks were performed using a [Portugues
 
 Detailed results can be found [here](https://huggingface.co/datasets/eduagarcia-temp/llm_pt_leaderboard_raw_results/tree/main/dominguesm/mambarim-110m)
 
-| Model                                  | **Average** | ENEM  | BLUEX | OAB Exams | ASSIN2 RTE | ASSIN2 STS | FAQNAD NLI | HateBR | PT Hate Speech | tweetSentBR | **Architecture**   |
-| -------------------------------------- | ----------- | ----- | ----- | --------- | ---------- | ---------- | ---------- | ------ | -------------- | ----------- | ------------------ |
-| [TeenyTinyLlama-460m](https://huggingface.co/nicholasKluge/TeenyTinyLlama-460m)      | 28.86       | 20.15 | 25.73 | 27.02     | 53.61      | 13         | 46.41      | 33.59  | 22.99          | 17.28       | LlamaForCausalLM   |
-| [TeenyTinyLlama-160m](https://huggingface.co/nicholasKluge/TeenyTinyLlama-160m)      | 28.2        | 19.24 | 23.09 | 22.37     | 53.97      | 0.24       | 43.97      | 36.92  | 42.63          | 11.39       | LlamaForCausalLM   |
-| [MulaBR/Mula-4x160-v0.1](https://huggingface.co/MulaBR/Mula-4x160-v0.1)                 | 26.24       | 21.34 | 25.17 | 25.06     | 33.57      | 11.35      | 43.97      | 41.5   | 22.99          | 11.24       | MixtralForCausalLM |
-| [TeenyTinyLlama-460m-Chat](https://huggingface.co/nicholasKluge/TeenyTinyLlama-460m-Chat) | 25.49       | 20.29 | 25.45 | 26.74     | 43.77      | 4.52       | 34         | 33.49  | 22.99          | 18.13       | LlamaForCausalLM   |
-| [**Mambarim-110M**](https://huggingface.co/dominguesm/mambarim-110m)           | **14.16**   | 18.4  | 10.57 | 21.87     | 16.09      | 1.89       | 9.29       | 15.75  | 17.77          | 15.79       | **MambaForCausalLM**   |
-| [GloriaTA-3B](https://huggingface.co/NOVA-vision-language/GlorIA-1.3B)       | 4.09        | 1.89  | 3.2   | 5.19      | 0          | 2.32       | 0.26       | 0.28   | 23.52          | 0.19        | GPTNeoForCausalLM  |
+| Model                                                                                     | **Average** | ENEM  | BLUEX | OAB Exams | ASSIN2 RTE | ASSIN2 STS | FAQNAD NLI | HateBR | PT Hate Speech | tweetSentBR | **Architecture**     |
+| ----------------------------------------------------------------------------------------- | ----------- | ----- | ----- | --------- | ---------- | ---------- | ---------- | ------ | -------------- | ----------- | -------------------- |
+| [TeenyTinyLlama-460m](https://huggingface.co/nicholasKluge/TeenyTinyLlama-460m)           | 28.86       | 20.15 | 25.73 | 27.02     | 53.61      | 13         | 46.41      | 33.59  | 22.99          | 17.28       | LlamaForCausalLM     |
+| [TeenyTinyLlama-160m](https://huggingface.co/nicholasKluge/TeenyTinyLlama-160m)           | 28.2        | 19.24 | 23.09 | 22.37     | 53.97      | 0.24       | 43.97      | 36.92  | 42.63          | 11.39       | LlamaForCausalLM     |
+| [MulaBR/Mula-4x160-v0.1](https://huggingface.co/MulaBR/Mula-4x160-v0.1)                   | 26.24       | 21.34 | 25.17 | 25.06     | 33.57      | 11.35      | 43.97      | 41.5   | 22.99          | 11.24       | MixtralForCausalLM   |
+| [TeenyTinyLlama-460m-Chat](https://huggingface.co/nicholasKluge/TeenyTinyLlama-460m-Chat) | 25.49       | 20.29 | 25.45 | 26.74     | 43.77      | 4.52       | 34         | 33.49  | 22.99          | 18.13       | LlamaForCausalLM     |
+| [**Mambarim-110M**](https://huggingface.co/dominguesm/mambarim-110m)                      | **14.16**   | 18.4  | 10.57 | 21.87     | 16.09      | 1.89       | 9.29       | 15.75  | 17.77          | 15.79       | **MambaForCausalLM** |
+| [GloriaTA-3B](https://huggingface.co/NOVA-vision-language/GlorIA-1.3B)                    | 4.09        | 1.89  | 3.2   | 5.19      | 0          | 2.32       | 0.26       | 0.28   | 23.52          | 0.19        | GPTNeoForCausalLM    |
