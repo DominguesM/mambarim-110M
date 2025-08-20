@@ -25,9 +25,9 @@ This design choice leads to significantly faster inference and reduced memory co
 
 This model was trained to be fully open and reproducible. You can find all the resources used below:
 
-- **Source Code:** [GitHub Repository](https://github.com/DominguesM/mambarim-110M/)
-- **Training Notebook:** [Open in Colab](https://githubtocolab.com/DominguesM/mambarim-110M/blob/main/MAMBARIM_110M.ipynb)
-- **Training Metrics:** [View on Weights & Biases](https://wandb.ai/dominguesm/canarim-mamba-110m?nw=nwuserdominguesm)
+- **Source Code:** <a href="https://github.com/DominguesM/mambarim-110M/" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+- **Training Notebook:** <a href="https://githubtocolab.com/DominguesM/mambarim-110M/blob/main/MAMBARIM_110M.ipynb" target="_blank" rel="noopener noreferrer">Open in Colab</a>
+- **Training Metrics:** <a href="https://wandb.ai/dominguesm/canarim-mamba-110m?nw=nwuserdominguesm" target="_blank" rel="noopener noreferrer">View on Weights & Biases</a>
 
 ## Intended Uses
 
